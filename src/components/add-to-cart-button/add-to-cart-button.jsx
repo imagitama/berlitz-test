@@ -11,10 +11,12 @@ const getLabelForAddToCartButton = status => {
   switch (status) {
     case productCartStatus.WAITING:
       return 'Add To Cart'
-    case productCartStatus.ADDED:
-      return 'Item added to cart'
     case productCartStatus.ADDING:
       return 'Adding to cart...'
+    case productCartStatus.JUST_ADDED:
+      return 'Item added to cart!'
+    case productCartStatus.ADDED:
+      return 'View Cart'
     default:
       return 'Unknown'
   }

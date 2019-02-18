@@ -4,6 +4,12 @@ export const addingToCart = productId => ({
   productId
 })
 
+export const PRODUCT_JUST_ADDED_TO_CART = 'PRODUCT_JUST_ADDED_TO_CART`'
+export const justAddedToCart = productId => ({
+  type: PRODUCT_JUST_ADDED_TO_CART,
+  productId
+})
+
 export const PRODUCT_ADDED_TO_CART = 'PRODUCT_ADDED_TO_CART`'
 export const addedToCart = productId => ({
   type: PRODUCT_ADDED_TO_CART,
@@ -14,6 +20,10 @@ export const addToCart = productId => dispatch => {
   dispatch(addingToCart(productId))
 
   setTimeout(() => {
-    dispatch(addedToCart(productId))
+    dispatch(justAddedToCart(productId))
+
+    setTimeout(() => {
+      dispatch(addedToCart(productId))
+    }, 2000)
   }, 2000)
 }
