@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import colors from '../../colors'
-import sizes from '../../sizes'
 import Dropdown from '../../components/dropdown/dropdown'
+import sizes from '../../sizes'
 
 const Label = styled.div({
-  textTransform: 'uppercase'
+  textTransform: 'uppercase',
+  fontWeight: 'bold',
+  marginBottom: sizes.default
 })
 
 const ProductStylesDropdown = ({ label, styles, selectStyle }) =>

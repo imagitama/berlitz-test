@@ -19,9 +19,14 @@ import ProductPrice from '../../components/product-price/product-price'
 
 import ProductPhoto from '../../components/product-photo/product-photo'
 import ProductStylesDropdown from '../../components/product-styles-dropdown/product-styles-dropdown'
+import mediaQueries from '../../media-queries';
 
 const LayoutWrapper = styled.div({
-  display: 'flex'
+  display: 'flex',
+  flexDirection: 'column-reverse',
+  [mediaQueries.small]: {
+    flexDirection: 'row'
+  }
 })
 
 const LeftColumn = styled.div({
@@ -33,22 +38,25 @@ const RightColumn = styled.div({
   flex: 1
 })
 
-const InnerContent = styled.div({
-  padding: `1rem 2rem`
-})
+const InnerContent = styled.div(({ isBordered = true }) => ({
+  padding: `${sizes.large}`,
+  borderBottom: isBordered ? `0.1rem solid ${colors.muted}` : null
+}))
 
 const Product = ({ id, title, subtitle, tabs, selectedTab, selectTab, price, oldPrice, styles, selectStyle, selectedStyle, stylesLabel }) => (
   <LayoutWrapper>
     <LeftColumn>
-      <InnerContent>
+      <InnerContent isBordered={false}>
         <BackButton>All products</BackButton>
         <ProductTitle>{title}</ProductTitle>
         <ProductSubTitle>{subtitle}</ProductSubTitle>
       </InnerContent>
       <Tabs tabs={tabs} selectedTab={selectedTab} selectTab={selectTab} />
-      <InnerContent>
-        <ProductPrice>{price}</ProductPrice>
+      <InnerContent isBordered={false}>
+        <ProductPrice>{price}</ProductPrice>&nbsp;
         <ProductPrice isOld={true}>{oldPrice}</ProductPrice>
+      </InnerContent>
+      <InnerContent>
         <ProductStylesDropdown label={stylesLabel} styles={styles} selectStyle={selectStyle} />
       </InnerContent>
       <InnerContent>

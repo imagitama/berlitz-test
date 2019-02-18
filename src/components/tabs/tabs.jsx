@@ -6,6 +6,7 @@ import sizes from '../../sizes'
 const TabsWrapper = styled.ul({
   listStyle: 'none',
   padding: `0 ${sizes.bodyTextPadding}`,
+  margin: `0 0 ${sizes.large}`,
   borderBottom: `${sizes.border} solid ${colors.muted}`
 })
 
@@ -16,11 +17,13 @@ const Tab = styled.li(({ isSelected }) => ({
   textTransform: 'uppercase',
   fontWeight: 'bold',
   display: 'inline-block',
-  padding: sizes.default
+  padding: sizes.default,
+  marginBottom: '-0.1rem'
 }))
 
 const TabContents = styled.div({
-  padding: `0 ${sizes.bodyTextPadding}`
+  padding: `0 ${sizes.bodyTextPadding}`,
+  lineHeight: 1.7
 })
 
 const Tabs = ({ tabs, selectedTab, selectTab }) =>

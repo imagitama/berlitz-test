@@ -1,7 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import colors from '../../colors'
-import sizes from '../../sizes'
 
 const Image = styled.img({
   width: '100%'

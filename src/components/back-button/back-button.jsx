@@ -6,6 +6,6 @@ const Arrow = styled.span({
   color: colors.secondaryText
 })
 
-const BackButton = ({ children }) => <div><Arrow>{'<'}</Arrow> {children}</div>
+const BackButton = ({ children }) => <div><Arrow>&#8592;</Arrow> {children}</div>
 
 export default BackButton

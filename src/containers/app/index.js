@@ -5,6 +5,7 @@ import { Global } from '@emotion/core'
 import Product from '../product'
 import sizes from '../../sizes'
 import colors from '../../colors'
+import mediaQueries from '../../media-queries'
 
 const ContentStyled = styled.div({
   borderRadius: sizes.borderRadius,
@@ -22,7 +23,16 @@ html {
 body {
   font-family: 'Quicksand', sans-serif;
   background: ${colors.bodyBg};
-  padding: 4rem 2rem;
+  padding: 2rem 1rem;
+
+  ${mediaQueries.small} {
+    padding: 4rem 2rem;
+  }
+
+  ${mediaQueries.medium} {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
 }`} />
     <Route exact path="/" component={Product} />
   </ContentStyled>
